@@ -18,7 +18,7 @@ def get_news_headlines(stock_input):
     params = (
         ('q', f'{stock_input}|stocks'),
         ('offset', '0'),
-        ('limit', '10'),
+        ('limit', '20'),
         ('fallback', 'false'),
     )
     time.sleep(10)
@@ -31,8 +31,10 @@ def get_news_headlines(stock_input):
         f"{stock_input}": {
         "key": f"{stock_input}",
         "value": {
-            "news_title": [result["data"]["rows"][i]["title"] for i in range(20)],
-            "timestamp" : [result["data"]["rows"][i]["ago"] for i in range(20)],
+            f"news": {  
+                "news_title": [result["data"]["rows"][i]["title"] for i in range(20)],
+                "timestamp" : [result["data"]["rows"][i]["ago"] for i in range(20)] 
+            }
         }        
         }
     }
