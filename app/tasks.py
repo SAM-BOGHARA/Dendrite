@@ -1,5 +1,6 @@
 import requests
 import time
+import json
 
 def get_news_headlines(stock_input):
     headers = {
@@ -18,14 +19,12 @@ def get_news_headlines(stock_input):
     params = (
         ('q', f'{stock_input}|stocks'),
         ('offset', '0'),
-        ('limit', '20'),
+        ('limit', '100'),
         ('fallback', 'false'),
     )
     time.sleep(10)
     response = requests.get('https://api.nasdaq.com/api/news/topic/articlebysymbol', headers=headers, params=params)
     result = response.json()
-
-
 
     news_dictionary = {
         f"{stock_input}": {
@@ -39,6 +38,5 @@ def get_news_headlines(stock_input):
         }
     }
     
-
-    print(news_dictionary)
+    print(json.dumps(news_dictionary))
     return news_dictionary
