@@ -8,7 +8,7 @@
 ## After Downloading Steps to Run
 First step is important since windows does not support "fork" and AttributeError will arise.
 
-`$ pip install git+https://github.com/michaelbrooks/rq-win.git#egg=rq-win
+`$ pip install git+https://github.com/michaelbrooks/rq-win.git#egg=rq-win`
 
 #### Now Starting redis Server`
 `$ redis-server --port 6380`
